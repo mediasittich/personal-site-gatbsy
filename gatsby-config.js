@@ -13,5 +13,15 @@ module.exports = {
     data: ["item 1", "item 2"],
     person: { name: "peter", age: 32 },
   },
-  plugins: [],
+  plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets/`,
+      },
+    },
+  ],
 }

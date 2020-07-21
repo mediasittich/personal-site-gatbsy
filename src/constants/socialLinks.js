@@ -27,7 +27,9 @@ const DATA = [
 const LINKS = DATA.map(link => {
   return (
     <li key={link.id}>
-      <a href={link.url} className="social-link"></a>
+      <a href={link.url} className="social-link">
+        {link.icon}
+      </a>
     </li>
   )
 })
