@@ -6,5 +6,12 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "My Gatsby Site",
+    description: "some random description",
+    author: "@mediasittich",
+    data: ["item 1", "item 2"],
+    person: { name: "peter", age: 32 },
+  },
   plugins: [],
 }
