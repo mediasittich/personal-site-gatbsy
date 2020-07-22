@@ -22,7 +22,8 @@
     "gatsby-transformer-sharp": "^2.5.11",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-icons": "^3.10.0"
+    "react-icons": "^3.10.0",
+    "react-markdown": "^4.3.1"
   },
   "devDependencies": {
     "prettier": "2.0.5"
