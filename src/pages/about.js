@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import { FaCheckSquare } from "react-icons/fa"
 import Layout from "../components/Layout"
 import Title from "../components/Title"
 
