@@ -1,27 +1,26 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import Hero from "../components/Hero"
 import Projects from "../components/Projects"
 
-export default function Home({ data }) {
-  const {
+const ProjectsPage = ({
+  data: {
     allStrapiProjects: { nodes: projects },
-  } = data
-
+  },
+}) => {
   return (
     <Layout>
-      <Hero />
-      <Projects projects={projects} title="featured projects" showLink />
+      <section className="projects-page">
+        <Projects projects={projects} title="all projects" />
+      </section>
     </Layout>
   )
 }
 
 export const query = graphql`
   {
-    allStrapiProjects(filter: { featured: { eq: true } }) {
+    allStrapiProjects {
       nodes {
-        id
         title
         description
         github
@@ -30,6 +29,7 @@ export const query = graphql`
           title
           id
         }
+        id
         image {
           childImageSharp {
             fluid {
@@ -41,3 +41,5 @@ export const query = graphql`
     }
   }
 `
+
+export default ProjectsPage
