@@ -30,7 +30,7 @@ module.exports = {
         queryLimit: 1000, // Default to 100
         contentTypes: [`projects`, `posts`],
         //If using single types place them in this array.
-        // singleTypes: [`home-page`, `contact`],
+        singleTypes: [`about`],
       },
     },
   ],
