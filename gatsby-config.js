@@ -9,13 +9,15 @@ module.exports = {
   siteMetadata: {
     title: "My Gatsby Site",
     description: "some random description",
-    author: "@mediasittich",
-    data: ["item 1", "item 2"],
-    person: { name: "peter", age: 32 },
+    author: "Regina Galambos",
+    twitterUsername: "@mediasittich",
+    image: "/twitter-img.png",
+    siteUrl: "https://www.reginagalambos.me",
   },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

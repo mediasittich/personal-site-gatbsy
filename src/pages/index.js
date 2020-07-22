@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 import Projects from "../components/Projects"
 import Posts from "../components/Posts"
+import SEO from "../components/SEO"
 
 export default function Home({ data }) {
   const {
@@ -13,6 +14,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
+      <SEO title="Home" description="This is our home page" />
       <Hero />
       <Projects projects={projects} title="featured projects" showLink />
       <Posts posts={posts} title="blog" showLink />
