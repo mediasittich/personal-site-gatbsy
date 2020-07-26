@@ -67,7 +67,7 @@ h6 {
             3. Header & Navigation
 =============================================
 */
-.sticky-outer-wrapper .nav-sticky {}
+/* .sticky-outer-wrapper .nav-sticky {} */
 
 .sticky-inner-wrapper {
     position: relative;
@@ -197,7 +197,6 @@ h6 {
             5. Index Page Main
 =============================================
 */
-.content-wrapper {}
 
 /*
 =============================================
@@ -301,16 +300,11 @@ h6 {
     }
 }
 
-@media (min-width: 1400px) {
-    .hero-wrapper {}
-}
-
 /*
 =============================================
             5.2 Blog Post List Component
 =============================================
 */
-.blog-posts-wrapper {}
 
 /* Section Title */
 .section-title {
@@ -589,5 +583,3 @@ h6 {
     background-color: var(--primary);
     color: var(--white);
 }
-
-.page-number {}
