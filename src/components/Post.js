@@ -4,23 +4,43 @@ import Image from "gatsby-image"
 import { Link } from "gatsby"
 
 const Post = ({ id, title, image, date, category, slug, description }) => {
+  const [day, month, year] = date.split(" ")
+
   return (
-    <Link to={`/blog/${slug}`} className="post-preview" key={id}>
-      <article>
-        {image && (
-          <Image fluid={image.childImageSharp.fluid} className="blog-img" />
-        )}
-        <div className="blog-card">
-          <h4>{title}</h4>
-          <p>{description}</p>
-          <div className="blog-footer">
-            <p>{category}</p>
-            <p>{date}</p>
+    <div className="post-card-wrapper" key={id}>
+      <article className="post-card">
+        <header className="post-date-image-wrapper">
+          <div className="post-date">
+            {day}
+            <span>
+              {month} {year}
+            </span>
           </div>
-        </div>
+          <div className="post-featured-image">
+            <Link to={`/blog/${slug}`}>
+              {image && <Image fluid={image.childImageSharp.fluid} />}
+            </Link>
+          </div>
+        </header>
+        <main className="post-content">
+          <div className="post-tags">
+            <span>#{category}</span>
+          </div>
+          <h2 className="post-title">
+            <Link to={`/blog/${slug}`}>{title}</Link>
+          </h2>
+          <p className="post-excerpt">{description}</p>
+          <div className="read-more-link">
+            <Link to={`/blog/${slug}`}>Read More</Link>
+          </div>
+        </main>
+
+        {/* {image && (
+            <Image fluid={image.childImageSharp.fluid} className="blog-img" />
+          )} */}
+        {/* <p>{date}</p> */}
       </article>
-      <hr />
-    </Link>
+    </div>
   )
 }
 

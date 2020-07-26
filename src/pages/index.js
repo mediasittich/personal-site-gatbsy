@@ -6,7 +6,7 @@ import Posts from "../components/Posts"
 import SEO from "../components/SEO"
 import { Container, Row } from "react-bootstrap"
 
-export default function Home({ data }) {
+export default function Home({ location, data }) {
   const {
     // allStrapiProjects: { nodes: projects },
     allStrapiPosts: { nodes: posts },
@@ -17,7 +17,12 @@ export default function Home({ data }) {
       <SEO title="Home" description="This is our home page" />
       <main className="content-wrapper">
         <Hero />
-        <Posts posts={posts} title="Latest Blog Posts" showLink />
+        <Posts
+          posts={posts}
+          location={location.pathname}
+          title="Latest Blog Posts"
+          showLink
+        />
       </main>
     </Layout>
   )
@@ -53,7 +58,7 @@ export const query = graphql`
         slug
         description
         content
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM YYYY")
         category
         image {
           childImageSharp {
