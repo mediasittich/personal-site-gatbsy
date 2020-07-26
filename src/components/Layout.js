@@ -10,7 +10,7 @@ const Layout = ({ children, isOpen, toggleMobileNav }) => {
     <>
       <Header />
       {/* <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} /> */}
-      <main>{children}</main>
+      {children}
       <Footer />
     </>
   )

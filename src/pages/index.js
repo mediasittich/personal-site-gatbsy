@@ -15,12 +15,10 @@ export default function Home({ data }) {
   return (
     <Layout>
       <SEO title="Home" description="This is our home page" />
-      <div>
-        {/* <Hero /> */}
-        <div>
-          <Posts posts={posts} title="latest blog posts" showLink />
-        </div>
-      </div>
+      <main className="content-wrapper">
+        <Hero />
+        <Posts posts={posts} title="Latest Blog Posts" showLink />
+      </main>
     </Layout>
   )
 }

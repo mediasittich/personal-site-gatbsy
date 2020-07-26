@@ -24,22 +24,22 @@ const Hero = () => {
   } = useStaticQuery(query)
 
   return (
-    <header className="hero">
-      <div className="section-center hero-center">
-        <article className="hero-info">
-          <div>
-            <div className="underline"></div>
-            <h1>I'm john</h1>
-            <h4>freelance web and mobile UI/UX Designer</h4>
-            <Link to="/" className="btn">
-              contact me
-            </Link>
-            <SocialLinks />
-          </div>
-        </article>
-        <Image fluid={fluid} className="hero-img" />
+    <section className="hero-wrapper">
+      <div className="hero-img">
+        <Image fluid={fluid} />
       </div>
-    </header>
+      <div className="hero-text">
+        <h1 className="hero-title">
+          Hey! I'm <b>David</b>
+        </h1>
+        <p className="hero-description">
+          Breakfast procuring no end happiness allowance assurance frank. Met
+          simplicity nor difficulty unreserved who. Entreaties mr conviction
+          dissimilar me astonished estimating cultivated.
+        </p>
+        <SocialLinks />
+      </div>
+    </section>
   )
 }
 

@@ -1,10 +1,10 @@
 import React from "react"
-import { FaGithub, FaTwitterSquare, FaLinkedin, FaMedium } from "react-icons/fa"
+import { FaGithub, FaTwitter, FaLinkedin, FaMedium } from "react-icons/fa"
 
 const DATA = [
   {
     id: 1,
-    icon: <FaTwitterSquare className="social-icon"></FaTwitterSquare>,
+    icon: <FaTwitter className="social-icon"></FaTwitter>,
     url: "https:twitter.com",
   },
   {

@@ -4,15 +4,9 @@ import { Container, Row, Col } from "react-bootstrap"
 
 const Footer = () => {
   return (
-    <footer>
-      <div>
-        <div>
-          <div>
-            <SocialLinks styleClass="footer-links" />
-            <p>Copyright &copy; siteTitle {new Date().getFullYear()}</p>
-          </div>
-        </div>
-      </div>
+    <footer className="footer-wrapper">
+      {/* <SocialLinks styleClass="footer-links" /> */}
+      <p>Copyright &copy; siteTitle {new Date().getFullYear()}</p>
     </footer>
   )
 }
