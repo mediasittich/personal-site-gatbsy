@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     {
-      posts: allStrapiPosts {
+      posts: allStrapiArticles {
         nodes {
           slug
         }

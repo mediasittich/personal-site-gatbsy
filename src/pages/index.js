@@ -4,12 +4,11 @@ import Layout from "../containers/Layout"
 import Hero from "../components/Hero"
 import Posts from "../components/Posts"
 import SEO from "../components/SEO"
-import { Container, Row } from "react-bootstrap"
 
 export default function Home({ location, data }) {
   const {
     // allStrapiProjects: { nodes: projects },
-    allStrapiPosts: { nodes: posts },
+    allStrapiArticles: { nodes: posts },
   } = data
 
   return (
@@ -30,36 +29,18 @@ export default function Home({ location, data }) {
 
 export const query = graphql`
   {
-    allStrapiProjects(filter: { featured: { eq: true } }) {
-      nodes {
-        id
-        title
-        description
-        github
-        url
-        stack {
-          title
-          id
-        }
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-
-    allStrapiPosts(sort: { fields: date, order: DESC }, limit: 3) {
+    allStrapiArticles(sort: { fields: createdAt, order: DESC }, limit: 5) {
       nodes {
         id
         title
         slug
         description
         content
-        date(formatString: "DD MMMM YYYY")
-        category
+        createdAt(formatString: "DD MMMM YYYY")
+        tag {
+          id
+          title
+        }
         image {
           childImageSharp {
             fluid {

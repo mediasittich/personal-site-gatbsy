@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import Image from "gatsby-image"
 import { Link } from "gatsby"
 
-const Post = ({ id, title, image, date, category, slug, description }) => {
-  const [day, month, year] = date.split(" ")
+const Post = ({ id, title, image, createdAt, tag, slug, description }) => {
+  const [day, month, year] = createdAt.split(" ")
 
   return (
     <div className="post-card-wrapper" key={id}>
@@ -24,7 +24,9 @@ const Post = ({ id, title, image, date, category, slug, description }) => {
         </header>
         <main className="post-content">
           <div className="post-tags">
-            <span>#{category}</span>
+            {tag.map(item => {
+              return <span key={item.id}>#{item.title}</span>
+            })}
           </div>
           <h2 className="post-title">
             <Link to={`/blog/${slug}`}>{title}</Link>
@@ -50,7 +52,7 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.object,
   date: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 }

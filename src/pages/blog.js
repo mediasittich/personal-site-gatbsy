@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination"
 const Blog = ({
   location,
   data: {
-    allStrapiPosts: { nodes: posts },
+    allStrapiArticles: { nodes: posts },
   },
 }) => {
   return (
@@ -22,14 +22,18 @@ const Blog = ({
 
 export const query = graphql`
   {
-    allStrapiPosts {
+    allStrapiArticles(sort: { fields: createdAt, order: DESC }) {
       nodes {
         id
         title
         slug
         description
-        date(formatString: "DD MMMM YYYY")
-        category
+        content
+        createdAt(formatString: "DD MMMM YYYY")
+        tag {
+          id
+          title
+        }
         image {
           childImageSharp {
             fluid {

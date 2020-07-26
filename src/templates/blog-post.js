@@ -26,7 +26,7 @@ const BlogPost = ({ data }) => {
 
 export const query = graphql`
   query GetSinglePost($slug: String) {
-    post: strapiPosts(slug: { eq: $slug }) {
+    post: strapiArticles(slug: { eq: $slug }) {
       content
       title
       description
