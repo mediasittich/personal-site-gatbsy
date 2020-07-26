@@ -4,24 +4,24 @@ import { Link } from "gatsby"
 const DATA = [
   {
     id: 1,
-    text: "home",
+    text: "Home",
     url: "/",
   },
-  {
-    id: 2,
-    text: "about",
-    url: "/about/",
-  },
+  // {
+  //   id: 2,
+  //   text: "about",
+  //   url: "/about/",
+  // },
   {
     id: 3,
-    text: "blog",
+    text: "Blog",
     url: "/blog/",
   },
-  {
-    id: 4,
-    text: "projects",
-    url: "/projects/",
-  },
+  // {
+  //   id: 4,
+  //   text: "projects",
+  //   url: "/projects/",
+  // },
 ]
 
 const LINKS = DATA.map(link => {

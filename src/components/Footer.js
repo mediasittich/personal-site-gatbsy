@@ -1,15 +1,17 @@
 import React from "react"
 import SocialLinks from "../constants/socialLinks"
+import { Container, Row, Col } from "react-bootstrap"
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer>
       <div>
-        <SocialLinks styleClass="footer-links" />
-        <h4>
-          copyright&copy; {new Date().getFullYear()}
-          <span>WebDev</span> all rights reserved
-        </h4>
+        <div>
+          <div>
+            <SocialLinks styleClass="footer-links" />
+            <p>Copyright &copy; siteTitle {new Date().getFullYear()}</p>
+          </div>
+        </div>
       </div>
     </footer>
   )

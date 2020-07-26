@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 const Post = ({ id, title, image, date, category, slug, description }) => {
   return (
-    <Link to={`/posts/${slug}`} className="blog" key={id}>
+    <Link to={`/blog/${slug}`} className="post-preview" key={id}>
       <article>
         {image && (
           <Image fluid={image.childImageSharp.fluid} className="blog-img" />
@@ -19,6 +19,7 @@ const Post = ({ id, title, image, date, category, slug, description }) => {
           </div>
         </div>
       </article>
+      <hr />
     </Link>
   )
 }
