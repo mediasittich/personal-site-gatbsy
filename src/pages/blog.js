@@ -20,30 +20,40 @@ const Blog = ({
   )
 }
 
-// export const query = graphql`
-//   {
-//     allStrapiArticles(sort: { fields: createdAt, order: DESC }) {
-//       nodes {
-//         id
-//         title
-//         slug
-//         description
-//         content
-//         createdAt(formatString: "DD MMMM YYYY")
-//         tag {
-//           id
-//           title
-//         }
-//         image {
-//           childImageSharp {
-//             fluid {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  {
+    allStrapiArticles(
+      sort: { fields: publishedAt, order: DESC }
+      filter: { status: { eq: "published" } }
+    ) {
+      nodes {
+        Seo {
+          metaTitle
+          metaDescription
+        }
+        id
+        title
+        slug
+        status
+        author {
+          username
+        }
+        publishedAt(formatString: "DD MMMM YYYY")
+        content
+        tags {
+          id
+          name
+        }
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Blog
