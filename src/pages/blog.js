@@ -20,30 +20,30 @@ const Blog = ({
   )
 }
 
-export const query = graphql`
-  {
-    allStrapiArticles(sort: { fields: createdAt, order: DESC }) {
-      nodes {
-        id
-        title
-        slug
-        description
-        content
-        createdAt(formatString: "DD MMMM YYYY")
-        tag {
-          id
-          title
-        }
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   {
+//     allStrapiArticles(sort: { fields: createdAt, order: DESC }) {
+//       nodes {
+//         id
+//         title
+//         slug
+//         description
+//         content
+//         createdAt(formatString: "DD MMMM YYYY")
+//         tag {
+//           id
+//           title
+//         }
+//         image {
+//           childImageSharp {
+//             fluid {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Blog

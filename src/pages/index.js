@@ -29,17 +29,27 @@ export default function Home({ location, data }) {
 
 export const query = graphql`
   {
-    allStrapiArticles(sort: { fields: createdAt, order: DESC }, limit: 5) {
+    allStrapiArticles(
+      sort: { fields: publishedAt, order: DESC }
+      filter: { status: { eq: "published" } }
+    ) {
       nodes {
+        Seo {
+          metaTitle
+          metaDescription
+        }
         id
         title
         slug
-        description
+        status
+        author {
+          username
+        }
+        publishedAt(formatString: "DD MMMM YYYY")
         content
-        createdAt(formatString: "DD MMMM YYYY")
-        tag {
+        tags {
           id
-          title
+          name
         }
         image {
           childImageSharp {

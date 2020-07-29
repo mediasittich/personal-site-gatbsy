@@ -5,11 +5,19 @@ import ReactMarkdown from "react-markdown"
 import SEO from "../components/SEO"
 
 const BlogPost = ({ data }) => {
-  const { content, title, description } = data.post
+  const {
+    Seo: { metaTitle, metaDescription },
+    title,
+    author: { username },
+    publishedAt,
+    content,
+    tags: { id, name },
+    image,
+  } = data.post
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={metaDescription} />
       <section className="blog-template">
         <div className="section-center">
           <article className="blog-content">
@@ -27,9 +35,27 @@ const BlogPost = ({ data }) => {
 export const query = graphql`
   query GetSinglePost($slug: String) {
     post: strapiArticles(slug: { eq: $slug }) {
-      content
       title
-      description
+      author {
+        username
+      }
+      publishedAt(formatString: "DD MMMM YYYY")
+      content
+      tags {
+        id
+        name
+      }
+      image {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      Seo {
+        metaTitle
+        metaDescription
+      }
     }
   }
 `

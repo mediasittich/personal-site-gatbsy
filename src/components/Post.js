@@ -3,8 +3,16 @@ import PropTypes from "prop-types"
 import Image from "gatsby-image"
 import { Link } from "gatsby"
 
-const Post = ({ id, title, image, createdAt, tag, slug, description }) => {
-  const [day, month, year] = createdAt.split(" ")
+const Post = ({
+  Seo: { metaDescription },
+  id,
+  title,
+  image,
+  publishedAt,
+  tags,
+  slug,
+}) => {
+  const [day, month, year] = publishedAt.split(" ")
 
   return (
     <div className="post-card-wrapper" key={id}>
@@ -24,14 +32,14 @@ const Post = ({ id, title, image, createdAt, tag, slug, description }) => {
         </header>
         <main className="post-content">
           <div className="post-tags">
-            {tag.map(item => {
-              return <span key={item.id}>#{item.title}</span>
+            {tags.map(tag => {
+              return <span key={tag.id}>#{tag.name}</span>
             })}
           </div>
           <h2 className="post-title">
             <Link to={`/blog/${slug}`}>{title}</Link>
           </h2>
-          <p className="post-excerpt">{description}</p>
+          <p className="post-excerpt">{metaDescription}</p>
           <div className="read-more-link">
             <Link to={`/blog/${slug}`}>Read More</Link>
           </div>
