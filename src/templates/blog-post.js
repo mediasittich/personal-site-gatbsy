@@ -19,29 +19,38 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <SEO title={title} description={metaDescription} />
-      <section className="blog-template">
-        <div className="section-center">
-          <h2>
-            {title} <br />
-            <small>
+      <section className="blog-template-wrapper container">
+        <article className="blog-article">
+          <h1 className="blog-title">
+            {title}
+            {/* <br /> */}
+            {/* <small>
               Some awesome subtitle for this really amazing blog post.
-            </small>
-          </h2>
-          {image && <Image fluid={image.childImageSharp.fluid} />}
-          <p>{username}</p>
-          <p>{publishedAt}</p>
-          <article className="blog-content">
+            </small> */}
+          </h1>
+          <span className="blog-date">{publishedAt}</span>
+          {image && (
+            <div className="blog-cover-image">
+              <Image fluid={image.childImageSharp.fluid} />
+            </div>
+          )}
+          {/* <p>{username}</p> */}
+
+          <main className="blog-content-wrapper">
             <ReactMarkdown source={content} />
-          </article>
+          </main>
           {/* <Link to="/blog/" className="btn center-btn">
             blog
           </Link> */}
-          <footer>
-            {tags.map(tag => {
-              return <span key={tag.id}>{tag.name}</span>
-            })}
+          <footer className="blog-footer-wrapper">
+            <div className="blog-tags">
+              {tags.map(tag => {
+                return <span key={tag.id}>#{tag.name}</span>
+              })}
+            </div>
+            <div className="blog-share"></div>
           </footer>
-        </div>
+        </article>
       </section>
     </Layout>
   )
