@@ -23,7 +23,8 @@ const Blog = ({
 export const query = graphql`
   {
     allStrapiArticles(
-      sort: { fields: published_at, order: DESC } # filter: { draft: { eq: false } }
+      sort: { fields: published_at, order: DESC }
+      filter: { draft: { eq: false } }
     ) {
       nodes {
         seo {
