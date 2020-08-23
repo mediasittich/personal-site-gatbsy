@@ -4,15 +4,15 @@ import Image from "gatsby-image"
 import { Link } from "gatsby"
 
 const Post = ({
-  Seo: { metaDescription },
+  seo: { meta_description },
   id,
   title,
   image,
-  publishedAt,
-  tags,
+  published_at,
+  tag,
   slug,
 }) => {
-  const [day, month, year] = publishedAt.split(" ")
+  const [day, month, year] = published_at.split(" ")
 
   return (
     <div className="post-card-wrapper" key={id}>
@@ -32,14 +32,14 @@ const Post = ({
         </header>
         <main className="post-content">
           <div className="post-tags">
-            {tags.map(tag => {
+            {tag.map(tag => {
               return <span key={tag.id}>#{tag.name}</span>
             })}
           </div>
           <h2 className="post-title">
             <Link to={`/blog/${slug}`}>{title}</Link>
           </h2>
-          <p className="post-excerpt">{metaDescription}</p>
+          <p className="post-excerpt">{meta_description}</p>
           <div className="read-more-link">
             <Link to={`/blog/${slug}`}>Read More</Link>
           </div>

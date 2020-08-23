@@ -7,18 +7,18 @@ import SEO from "../components/SEO"
 
 const BlogPost = ({ data }) => {
   const {
-    Seo: { metaTitle, metaDescription },
+    seo: { meta_title, meta_description },
     title,
-    author: { username },
+    // author: { username },
     publishedAt,
     content,
-    tags,
+    tag,
     image,
   } = data.post
 
   return (
     <Layout>
-      <SEO title={title} description={metaDescription} />
+      <SEO title={meta_title} description={meta_description} />
       <section className="blog-template-wrapper container">
         <article className="blog-article">
           <h1 className="blog-title">
@@ -44,7 +44,7 @@ const BlogPost = ({ data }) => {
           </Link> */}
           <footer className="blog-footer-wrapper">
             <div className="blog-tags">
-              {tags.map(tag => {
+              {tag.map(tag => {
                 return <span key={tag.id}>#{tag.name}</span>
               })}
             </div>
@@ -60,12 +60,12 @@ export const query = graphql`
   query GetSinglePost($slug: String) {
     post: strapiArticles(slug: { eq: $slug }) {
       title
-      author {
-        username
-      }
-      publishedAt(formatString: "DD MMMM YYYY")
+      # author {
+      #   username
+      # }
+      published_at(formatString: "DD MMMM YYYY")
       content
-      tags {
+      tag {
         id
         name
       }
@@ -76,9 +76,9 @@ export const query = graphql`
           }
         }
       }
-      Seo {
-        metaTitle
-        metaDescription
+      seo {
+        meta_title
+        meta_description
       }
     }
   }

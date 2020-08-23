@@ -23,24 +23,23 @@ const Blog = ({
 export const query = graphql`
   {
     allStrapiArticles(
-      sort: { fields: publishedAt, order: DESC }
-      filter: { status: { eq: "published" } }
+      sort: { fields: published_at, order: DESC } # filter: { draft: { eq: false } }
     ) {
       nodes {
-        Seo {
-          metaTitle
-          metaDescription
+        seo {
+          meta_title
+          meta_description
         }
-        id
+        strapiId
         title
         slug
-        status
-        author {
-          username
-        }
-        publishedAt(formatString: "DD MMMM YYYY")
+        # status
+        # author {
+        #   username
+        # }
+        published_at(formatString: "DD MMMM YYYY")
         content
-        tags {
+        tag {
           id
           name
         }

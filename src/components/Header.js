@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { FaAlignRight } from "react-icons/fa"
 import PageLinks from "../constants/pageLinks"
-import { Navbar, Container, Nav } from "react-bootstrap"
 
 const Header = ({ toggleSidebar }) => {
   return (
