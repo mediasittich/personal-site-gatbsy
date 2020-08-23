@@ -7,6 +7,7 @@ import SEO from "../components/SEO"
 
 export default function Home({ location, data }) {
   const {
+    strapiAbout: { title, description, image, social },
     // allStrapiProjects: { nodes: projects },
     allStrapiArticles: { nodes: posts },
   } = data
@@ -15,7 +16,12 @@ export default function Home({ location, data }) {
     <Layout>
       <SEO title="Home" description="This is our home page" />
       <main className="content-wrapper">
-        <Hero />
+        <Hero
+          title={title}
+          description={description}
+          image={image.childImageSharp.fluid}
+          social={social}
+        />
         <Posts
           posts={posts}
           location={location.pathname}
@@ -29,6 +35,22 @@ export default function Home({ location, data }) {
 
 export const query = graphql`
   {
+    strapiAbout {
+      title
+      description
+      image {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      social {
+        id
+        name
+        url
+      }
+    }
     allStrapiArticles(
       sort: { fields: published_at, order: DESC }
       filter: { draft: { eq: false } }
